@@ -34,6 +34,22 @@ jobs:
         run: npm run build
 
       - name: Publish package
-        run: npm publish
+        shell: bash
+        run: |
+          set +e
+          npm publish 2>&1 | tee publish.log
+          status=${PIPESTATUS[0]}
+          set -e
+
+          if [ "$status" -eq 0 ]; then
+            exit 0
+          fi
+
+          if grep -E "previously published|Cannot publish over|EPUBLISHCONFLICT|E409" publish.log; then
+            echo "Package version already exists; treating this publish as successful."
+            exit 0
+          fi
+
+          exit "$status"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
