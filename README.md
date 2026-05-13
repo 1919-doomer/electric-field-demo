@@ -50,6 +50,21 @@ npm run build
 npm run preview
 ```
 
+## Release 与 GitHub Package
+
+本仓库使用 GitHub Releases 发布版本。每次发布正式 Release 时，会触发 `.github/workflows/publish-package.yml`，自动构建并发布 GitHub npm Package：
+
+```text
+@1919-doomer/electric-field-demo
+```
+
+如需从 GitHub Packages 安装，需要在本地 npm 配置 GitHub Packages registry，并使用具备读取 package 权限的 GitHub token：
+
+```bash
+npm config set @1919-doomer:registry https://npm.pkg.github.com
+npm install @1919-doomer/electric-field-demo
+```
+
 ## 项目结构
 
 ```text

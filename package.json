@@ -1,8 +1,31 @@
 {
-  "name": "electric-field-demo",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@1919-doomer/electric-field-demo",
+  "version": "1.0.0",
+  "description": "A browser-based 2D point-charge electric field teaching demo built with React, TypeScript, Vite, and Canvas.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1919-doomer/electric-field-demo.git"
+  },
+  "homepage": "https://github.com/1919-doomer/electric-field-demo#readme",
+  "bugs": {
+    "url": "https://github.com/1919-doomer/electric-field-demo/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src",
+    "public",
+    "index.html",
+    "vite.config.ts",
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "tsconfig.node.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
